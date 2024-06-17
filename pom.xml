@@ -133,9 +133,9 @@
             </dependency>
             <!--公共基础模块依赖-->
             <dependency>
-                <groupId>com.powernode</groupId>
+                <groupId>com.dqw</groupId>
                 <artifactId>common-base</artifactId>
-                <version>${common-base.version}</version>
+                <version>1.0-SNAPSHOT</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
