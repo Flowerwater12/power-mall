@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: gateway-server
+  cloud:
+    nacos:
+      server-addr: 192.168.211.134:8848
+      username: nacos
+      password: nacos
+      discovery:
+        namespace: 1d1319b0-9942-4001-adf5-4a46b6182867
+        group: A_GROUP
+        service: ${spring.application.name}
+      config:
+        namespace: ${spring.cloud.nacos.discovery.namespace}
+        group: ${spring.cloud.nacos.discovery.group}
+        prefix: ${spring.application.name}
+        file-extension: yaml
+  profiles:
+    active: dev
+#gateway:
+#  white:
+#    allow-urls:
+#      - /auth-server/doLogin  # 当前地址是商城后台管理系统的获取token的路径
+#      - /free # 样例路径
+
+######################## 网关服务模块的远程配置文件内容 ######################################
+#server:
+#  port: 80
+#spring:
+#  redis:
+#    host: 192.168.175.128
+#    port: 6380
+#    password: 123456
+#  cloud:
+#    gateway:
+#      discovery:
+#        locator:
+#          enabled: true # 开启gateway网关的动态路由，从nacos注册中心列表中获取服务列表，然后再动态的路由到对应的服务模块中
