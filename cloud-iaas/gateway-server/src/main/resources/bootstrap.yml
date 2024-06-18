@@ -15,13 +15,15 @@ spring:
         group: ${spring.cloud.nacos.discovery.group}
         prefix: ${spring.application.name}
         file-extension: yaml
+        refresh-enabled: true
   profiles:
     active: dev
-#gateway:
-#  white:
-#    allow-urls:
-#      - /auth-server/doLogin  # 当前地址是商城后台管理系统的获取token的路径
-#      - /free # 样例路径
+
+gateway:
+  white:
+    allow-urls:
+      - /auth-server/doLogin  # 当前地址是商城后台管理系统的获取token的路径
+      - /free # 样例路径
 
 ######################## 网关服务模块的远程配置文件内容 ######################################
 #server:

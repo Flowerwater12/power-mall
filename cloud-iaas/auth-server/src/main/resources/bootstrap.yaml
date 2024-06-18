@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: auth-server
+  cloud:
+    nacos:
+      server-addr: 192.168.211.134:8848
+      username: nacos
+      password: nacos
+      discovery:
+        namespace: 1d1319b0-9942-4001-adf5-4a46b6182867
+        group: A_GROUP
+        service: ${spring.application.name}
+      config:
+        namespace: ${spring.cloud.nacos.discovery.namespace}
+        group: ${spring.cloud.nacos.discovery.group}
+        prefix: ${spring.application.name}
+        file-extension: yaml
+        shared-configs:
+          - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+  profiles:
+    active: dev
+
+
+
+########################## auth-server认证授权服务模块的远程配置文件内容 #######################
+#server:
+#  port: 9999
+
+
+######################### 项目的公共配置文件内容（共享配置文件内容）########################
+#spring:
+#  redis:
+#    host: 192.168.175.128
+#    port: 6380
+#    password: 123456
+#   datasource:
+#    druid:
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+#      url: jdbc:mysql://192.168.211.134:3307/mall?useSSL=false&serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+#      username: root
+#      password: 123456
+#   mvc:
+#     pathmatch:
+#      matching-strategy: ant_path_matcher
+#     format:
+#      date: yyyy-MM-dd HH:mm:ss
+#   jackson:
+#    date-format: yyyy-MM-dd HH:mm:ss
+#    time-zone: GMT+8
+#mybatis-plus:
+#  mapper-locations: classpath*:/mapper/**/*.xml
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
