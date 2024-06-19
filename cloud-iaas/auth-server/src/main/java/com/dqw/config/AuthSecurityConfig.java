@@ -65,6 +65,14 @@ public class AuthSecurityConfig extends WebSecurityConfigurerAdapter {
     public LogoutSuccessHandler logoutSuccessHandler(){
         return (request, response, authentication) -> {
 
+
+        };
+    }
+
+
+    @Bean
+    public AuthenticationSuccessHandler authenticationSuccessHandler(){
+        return (request, response, authentication) -> {
             // 使用UUID生成的字符串来当作令牌token --> redis.key
             String token = UUID.randomUUID().toString();
             // 从security容器中获取当前登录的用户身份信息    --> redis.value
@@ -86,14 +94,6 @@ public class AuthSecurityConfig extends WebSecurityConfigurerAdapter {
             writer.flush();
             writer.close();*/
             ResponseUtils.writer(response,s);
-        };
-    }
-
-
-    @Bean
-    public AuthenticationSuccessHandler authenticationSuccessHandler(){
-        return (request, response, authentication) -> {
-
         };
     }
 
