@@ -15,7 +15,6 @@ import lombok.NoArgsConstructor;
 @ApiModel("登录统一结果对象")
 public class LoginResult {
 
-
     @ApiModelProperty("令牌token")
     private String accessToken;
 
